@@ -1,3 +1,24 @@
-<p>
-  confirmation works!
-</p>
+<div class="center-inline wide-container">
+  <div class="img-header-div">
+    <img *ngIf="config.img==='1'" class="img-header-confirmation center-bloc " src="../../assets/confirmation/success-1.png"
+         alt="">
+    <img *ngIf="config.img==='2'" class="img-header-confirmation center-bloc " src="../../assets/confirmation/echec.png"
+         alt="">
+  </div>
+
+  <h1 *ngIf="config.title!==undefined" class="confirmation-title-text center-bloc">{{config.title}}</h1>
+
+
+  <h3 *ngIf="config.subTitle!==undefined"  class="confirmation-sub_title-text center-bloc">{{config.subTitle}}</h3>
+
+  <div *ngIf="config.btn">
+    <button mat-raised-button color="primary" class="white-text-btn">Découvrir Orange Bank</button>
+
+  </div>
+  <div >
+    <p *ngIf="config.paragraphe!==undefined">
+      {{config.paragraphe}}
+    </p>
+  </div>
+</div>
+

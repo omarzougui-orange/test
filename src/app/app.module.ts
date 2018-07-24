@@ -1,27 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
-
-
-
 
 import {MatInputModule, MatButtonModule, MatSlideToggleModule} from '@angular/material';
 
-
-
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { FirstVisitComponent } from './first-visit/first-visit.component';
-import {FormsModule} from '@angular/forms';
-import { ConfirmationComponent } from './confirmation/confirmation.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {FirstVisitComponent} from './first-visit/first-visit.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {ConfirmationComponent} from './confirmation/confirmation.component';
+import { ObDataPickerComponent } from './ob-data-picker/ob-data-picker.component';
+import { DateConfirmationComponent } from './date-confirmation/date-confirmation.component';
+import { ObHeaderComponent } from './ob-header/ob-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstVisitComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    ObDataPickerComponent,
+    DateConfirmationComponent,
+    ObHeaderComponent
+
   ],
   imports: [
     BrowserModule,
@@ -30,9 +30,12 @@ import { ConfirmationComponent } from './confirmation/confirmation.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

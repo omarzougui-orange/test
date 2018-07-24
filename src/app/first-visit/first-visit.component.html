@@ -1,49 +1,37 @@
 <div class="container-color center-inline">
 
-
   <div class=" container-white">
-    <div class="img-header-div">
-      <img src="../../assets/img-header.png" alt="" srcset="" class="img-header center-bloc" >
-    </div>
+    <app-ob-header></app-ob-header>
 
-
-    <h1 class="expediteur">Vincent Lesoin vous a envoyé <br>
-      234,00€</h1>
-    <h3>Pour recevoir votre virement, nous vous invitons à saisir vos coordonnées bancaires :</h3>
     <h2 class="text-left">Votre RIB</h2>
-
-
-
-    <form class="example-form">
+    <form [formGroup]="signupForm" class="example-form">
+      <div></div>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Nom" >
+        <input matInput placeholder="Nom" formControlName="lastname">
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Prénom" >
+        <input matInput placeholder="Prénom" formControlName="firstname">
       </mat-form-field>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Numéro IBAN" >
+        <input matInput placeholder="Numéro IBAN" formControlName="iban">
       </mat-form-field>
+
       <div class="text-right">
-        <mat-slide-toggle color="primary" ></mat-slide-toggle>
+        <mat-slide-toggle color="primary" (change)="visible = !visible"></mat-slide-toggle>
       </div>
 
+      <app-ob-data-picker *ngIf="visible" [parentFormGroup]="signupForm" ></app-ob-data-picker>
 
     </form>
   </div>
 
-    <button mat-raised-button color="primary" class="white-text-btn">Valider le virement</button>
+  <button [routerLink]="['/confirmation']" mat-raised-button color="primary" class="white-text-btn">Valider le
+    virement
+  </button>
 
-    <h4>Vous avez X jours pour valider ce virement.</h4>
+  <h4>Vous avez X jours pour valider ce virement.</h4>
 
-    <p>Vous pouvez supprimer le RIB que vous avez enregistré à tout moment ! Pour plus d’informations, consultez les<a>conditions générales d’utilisation</a> pour ce service.</p>
-
-
-
-
-
-
-
+  <p>Vous pouvez supprimer le RIB que vous avez enregistré à tout moment ! Pour plus d’informations, consultez les <a>conditions
+    générales d’utilisation</a> pour ce service.</p>
 
 </div>
-
