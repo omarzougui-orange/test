@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MatInputModule, MatButtonModule, MatSlideToggleModule} from '@angular/material';
+import {MatInputModule, MatButtonModule, MatSlideToggleModule, MatProgressSpinnerModule} from '@angular/material';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -14,6 +14,7 @@ import { DateConfirmationComponent } from './date-confirmation/date-confirmation
 import { ObHeaderComponent } from './ob-header/ob-header.component';
 import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { TransferAnalyzerComponent } from './transfer-analyzer/transfer-analyzer.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { CookieService } from 'ngx-cookie-service';
     ObDataPickerComponent,
     DateConfirmationComponent,
     ObHeaderComponent,
+    TransferAnalyzerComponent,
 
   ],
   imports: [
@@ -32,6 +34,7 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     FormsModule,
     MatSlideToggleModule,
     ReactiveFormsModule,

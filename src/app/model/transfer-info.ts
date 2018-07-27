@@ -1,4 +1,5 @@
 export interface TransferInfo {
+  transferAlias: string;
   amount: number;
   currency: string;
   firstNameOfSender: string;

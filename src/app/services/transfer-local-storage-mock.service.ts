@@ -10,48 +10,70 @@ export class TransferLocalStorageMockService {
   constructor() { }
 
   initLocalDatabase() {
-    const testObject = { 'one': 1, 'two': 2, 'three': 3 };
-    localStorage.setItem('testObject', JSON.stringify(testObject));
+    const tranfers: TransferInfo[] = [
+      {transferAlias: 'tyu564tyu4', amount: 300, beneficiaryId: '00007', currency: 'EUR', firstNameOfSender: 'Omar', lastNameOfSender: 'Marzougui', remainingDays: 5 },
+      {transferAlias: 'w9xc8wx9c7', amount: 150, beneficiaryId: '00025', currency: 'EUR', firstNameOfSender: 'Jérémie', lastNameOfSender: 'Muller', remainingDays: 0 },
+      {transferAlias: 'vb2n1vb21n', amount: 200, beneficiaryId: '00020', currency: 'EUR', firstNameOfSender: 'Bernard', lastNameOfSender: 'Dubois', remainingDays: 7 },
+      {transferAlias: 'a8z2e8az2e', amount: 600, beneficiaryId: '00007', currency: 'EUR', firstNameOfSender: 'Céline', lastNameOfSender: 'Martin', remainingDays: 2 },
+      {transferAlias: 'co19co37an', amount: 375, beneficiaryId: '00013', currency: 'EUR', firstNameOfSender: 'Céline', lastNameOfSender: 'Martin', remainingDays: 0 }
+    ];
+    localStorage.setItem('transfers', JSON.stringify(tranfers));
+
+    const beneficiaries: Beneficiary[] = [
+      {id: '00007', birthDate: '23/11/1988', registred: false},
+      {id: '00025', birthDate: '23/11/1988', registred: true},
+      {id: '00020', birthDate: '23/11/1988', registred: true},
+      {id: '00013', birthDate: '23/11/1988', registred: false}
+    ];
+    localStorage.setItem('beneficiaries', JSON.stringify(beneficiaries));
+
+    const profiles: Profile[] = [
+      {beneficiaryId: '00020', birthDate: '11/05/1980', iban: 'FR7630004000031234567890143', lastName: 'Durand', firstName: 'Camille'},
+      {beneficiaryId: '00025', birthDate: '17/03/1990', iban: 'FR7630006000011234567890189', lastName: 'Michel', firstName: 'Christine'}
+    ];
+    localStorage.setItem('profiles', JSON.stringify(profiles));
+
+  }
+
+  setProfile() {}
+
+  forgetBeneficiaryById(){
   }
 
 
-  // getTransferInfoByAlias(transferAlias: string): TransferInfo {
-  //
-  // }
-  //
-  //
-  // getBeneficiaryById(id: string): Beneficiary{
-  //
-  // }
-  //
-  // getProfileByBeneficiaryId(id: string){
-  //
-  // }
+  getTransferInfoByAlias(transferAlias: string): TransferInfo {
+    const transfers: TransferInfo[] = JSON.parse((localStorage.getItem('transfers')));
+    for (let i = 0; i < transfers.length; i++) {
+      if (transfers[i].transferAlias === transferAlias) {
+        return transfers[i];
+      }
+    }
+    return null;
+  }
 
 
+  getBeneficiaryById(beneficiaryId: string): Beneficiary{
+    // console.log(beneficiaryId);
+    const beneficiaries: Beneficiary[] = JSON.parse((localStorage.getItem('beneficiaries')));
+    for (let i = 0; i < beneficiaries.length; i++) {
+      if (beneficiaries[i].id === beneficiaryId) {
+        return beneficiaries[i];
+      }
+    }
+    return null;
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  getProfileByBeneficiaryId(beneficiaryId: string){
+    console.log(beneficiaryId);
+    const profiles: Profile[] = JSON.parse((localStorage.getItem('profiles')));
+    for (let i = 0; i < profiles.length; i++) {
+      if (profiles[i].beneficiaryId === beneficiaryId) {
+        console.log(profiles[i]);
+        return profiles[i];
+      }
+    }
+    return null;
+  }
 
 
 }

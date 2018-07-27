@@ -5,15 +5,18 @@ import {InformationPageConfiguration} from './information-page-configuration';
 import {FirstVisitComponent} from './first-visit/first-visit.component';
 import {AuthenticationPageConfiguration} from './authentication-page-configuration';
 import {DateConfirmationComponent} from './date-confirmation/date-confirmation.component';
+import {TransferAnalyzerComponent} from './transfer-analyzer/transfer-analyzer.component';
 
 const routes: Routes = [
+  {path: 'transfer/:transferAlis', component: TransferAnalyzerComponent},
   // first visit
-  {path: 'unknown_user', component: FirstVisitComponent, data: AuthenticationPageConfiguration.VISIT1_DATA},
+  {path: 'transfer/:transferAlis/unknown_user', component: FirstVisitComponent, data: AuthenticationPageConfiguration.VISIT1_DATA},
   // 2nd visit
-  {path: 'known_user', component: FirstVisitComponent, data: AuthenticationPageConfiguration.VISIT2_DATA},
-  {path: 'confirmation', component: ConfirmationComponent, data: InformationPageConfiguration.CONFIRMATION_DATA},
-  {path: 'error', component: ConfirmationComponent, data: InformationPageConfiguration.ERROR_DATA},
-  {path: 'validation', component: DateConfirmationComponent}
+  {path: 'transfer/:transferAlis/known_user', component: FirstVisitComponent, data: AuthenticationPageConfiguration.VISIT2_DATA},
+
+  {path: 'transfer/:transferAlis/confirmation', component: ConfirmationComponent, data: InformationPageConfiguration.CONFIRMATION_DATA},
+  {path: 'transfer/:transferAlis/error', component: ConfirmationComponent, data: InformationPageConfiguration.ERROR_DATA},
+  {path: 'transfer/:transferAlis/validation', component: DateConfirmationComponent}
 ];
 
 @NgModule({
