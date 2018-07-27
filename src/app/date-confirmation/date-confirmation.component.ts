@@ -16,7 +16,7 @@ export class DateConfirmationComponent implements OnInit {
   }
 
 
-  logForm(){
+  logForm() {
     console.log(this.dateFormGroup);
   }
 

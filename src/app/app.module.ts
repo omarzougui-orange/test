@@ -12,6 +12,9 @@ import {ConfirmationComponent} from './confirmation/confirmation.component';
 import { ObDataPickerComponent } from './ob-data-picker/ob-data-picker.component';
 import { DateConfirmationComponent } from './date-confirmation/date-confirmation.component';
 import { ObHeaderComponent } from './ob-header/ob-header.component';
+import {HttpClientModule, HttpClientXsrfModule} from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { ObHeaderComponent } from './ob-header/ob-header.component';
     ConfirmationComponent,
     ObDataPickerComponent,
     DateConfirmationComponent,
-    ObHeaderComponent
+    ObHeaderComponent,
 
   ],
   imports: [
@@ -31,10 +34,11 @@ import { ObHeaderComponent } from './ob-header/ob-header.component';
     MatButtonModule,
     FormsModule,
     MatSlideToggleModule,
-    ReactiveFormsModule
-
-  ],
-  providers: [],
+    ReactiveFormsModule,
+    HttpClientModule
+  //
+   ],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

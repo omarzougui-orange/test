@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-ob-header',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ob-header.component.sass']
 })
 export class ObHeaderComponent implements OnInit {
+  @Input('firstname') firstname;
+  @Input('lastname') lastname;
+  @Input('amount') amount;
+
+
 
   constructor() { }
 

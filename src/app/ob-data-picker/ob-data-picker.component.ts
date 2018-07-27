@@ -19,7 +19,7 @@ export class ObDataPickerComponent implements OnInit {
   }
 
   changeDate(e) {
-    this.dateText=this.displayDate(this.parentFormGroup.value.birthDate);
+    this.dateText = this.displayDate(this.parentFormGroup.value.birthDate);
   }
 
 

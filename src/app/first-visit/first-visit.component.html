@@ -1,9 +1,11 @@
 <div class="container-color center-inline">
 
   <div class=" container-white">
-    <app-ob-header></app-ob-header>
+    <app-ob-header [firstname]="firstName" [lastname]="lastName" [amount]="amount"></app-ob-header>
 
-    <h2 class="text-left">Votre RIB</h2>
+    <div class="text-left col-xs-6 no-padding">Votre RIB</div>
+    <div *ngIf="routeData.visite==2" class="text-right col-xs-6 no-padding">Modifier</div>
+
     <form [formGroup]="signupForm" class="example-form">
       <div></div>
       <mat-form-field class="example-full-width">
@@ -17,10 +19,10 @@
       </mat-form-field>
 
       <div class="text-right">
-        <mat-slide-toggle color="primary" (change)="visible = !visible"></mat-slide-toggle>
+        <mat-slide-toggle color="primary" [checked]="routeData.slideChecked" (change)="visible = !visible"></mat-slide-toggle>
       </div>
 
-      <app-ob-data-picker *ngIf="visible" [parentFormGroup]="signupForm" ></app-ob-data-picker>
+      <app-ob-data-picker *ngIf="visible && routeData.visite==1" [parentFormGroup]="signupForm" ></app-ob-data-picker>
 
     </form>
   </div>
