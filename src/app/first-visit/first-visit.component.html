@@ -1,7 +1,9 @@
 <div class="container-color center-inline">
 
   <div class=" container-white">
-    <app-ob-header [firstname]="firstName" [lastname]="lastName" [amount]="amount"></app-ob-header>
+    <app-ob-header [firstname]="transferMockService.transferInfo.firstNameOfSender"
+                   [lastname]="transferMockService.transferInfo.lastNameOfSender"
+                   [amount]="transferMockService.transferInfo.amount"></app-ob-header>
 
     <div class="text-left col-xs-6 no-padding">Votre RIB</div>
     <div *ngIf="routeData.visite==2" class="text-right col-xs-6 no-padding">Modifier</div>
@@ -27,7 +29,7 @@
     </form>
   </div>
 
-  <button [routerLink]="['/confirmation']" mat-raised-button color="primary" class="white-text-btn">Valider le
+  <button [routerLink]="['../confirmation']" mat-raised-button color="primary" class="white-text-btn">Valider le
     virement
   </button>
 

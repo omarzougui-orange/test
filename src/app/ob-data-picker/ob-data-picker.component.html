@@ -1,17 +1,27 @@
-<div class="row" [formGroup]="parentFormGroup">
+<div class="row space-top" [formGroup]="parentFormGroup">
 
 
 
     <span class="Je-suis-ne-le col-xs-5">Je suis né(e) le </span>
 
 
-    <mat-form-field class="col-xs-7 dateText">
-      <input  matInput placeholder="Date de naissance" (click)="date.click()" readonly [value]="dateText" >
-    </mat-form-field>
+    <!--<mat-form-field class="col-xs-7 dateText">-->
+      <!--<input  matInput placeholder="Date de naissance" (click)=" onInputClicked()" readonly [value]="dateText" >-->
+    <!--</mat-form-field>-->
 
 
 
   <!--input date is hidden with css-->
-  <input type="date" class="dp" (change)="changeDate($event)"  formControlName="birthDate"    #date>
+  <!--<input type="date"  (change)="changeDate($event)"  formControlName="birthDate"    #date>-->
+
+
+
+
+
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="birthDate" (change)="inputValueChanged($event)" >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
 </div>
 

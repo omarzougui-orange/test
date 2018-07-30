@@ -32,9 +32,9 @@ export class TransferAnalyzerComponent implements OnInit {
         const beneficiary: Beneficiary = this.transferMockService.getBeneficiaryById(beneficiaryId);
 
         if (beneficiary.registred === true){
-          this.router.navigate(['known_user'], {relativeTo: this.route});
-        } else {
           this.router.navigate(['validation'], {relativeTo: this.route});
+        } else {
+          this.router.navigate(['unknown_user'], {relativeTo: this.route});
         }
 
         // this.transferMockService.getProfileByBeneficiaryId(beneficiaryId);

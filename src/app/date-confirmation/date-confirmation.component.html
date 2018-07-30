@@ -1,10 +1,13 @@
 <div class="center-inline">
-  <app-ob-header></app-ob-header>
+  <app-ob-header [firstname]="transferMockService.transferInfo.firstNameOfSender"
+                 [lastname]="transferMockService.transferInfo.lastNameOfSender"
+                 [amount]="transferMockService.transferInfo.amount"></app-ob-header>
 
   <form [formGroup]="dateFormGroup">
     <app-ob-data-picker [parentFormGroup]="dateFormGroup" ></app-ob-data-picker>
   </form>
   <br>
-  <button [disabled]="!dateFormGroup.valid" (click)="logForm()" mat-raised-button color="primary" class="white-text-btn">Suivant</button>
+  <button [disabled]="!dateFormGroup.valid" (click)="logForm()" mat-raised-button color="primary"
+           class="white-text-btn" >Suivant</button>
 </div>
 
